@@ -1,0 +1,825 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="默认的主题也是很棒的，可是大家都有自己的爱好，就像我就喜欢黑白灰，Hexo官网上有主题项（https://hexo.io/themes/), 很多大牛写出了非常漂亮的主题发布在这里，大家可以去选择自己喜欢的风格，本篇以Next主题为例带着大家一起更换主题。 Next主题安装又是一样，推荐大家去官网(http://theme-next.iissnan.com/getting-started.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo之Next主题及写文章">
+<meta property="og:url" content="http://yoursite.com/2016/12/04/20161204/index.html">
+<meta property="og:site_name" content="wlwlxgg&#39;s Blog">
+<meta property="og:description" content="默认的主题也是很棒的，可是大家都有自己的爱好，就像我就喜欢黑白灰，Hexo官网上有主题项（https://hexo.io/themes/), 很多大牛写出了非常漂亮的主题发布在这里，大家可以去选择自己喜欢的风格，本篇以Next主题为例带着大家一起更换主题。 Next主题安装又是一样，推荐大家去官网(http://theme-next.iissnan.com/getting-started.html">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2016-12-28T04:00:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo之Next主题及写文章">
+<meta name="twitter:description" content="默认的主题也是很棒的，可是大家都有自己的爱好，就像我就喜欢黑白灰，Hexo官网上有主题项（https://hexo.io/themes/), 很多大牛写出了非常漂亮的主题发布在这里，大家可以去选择自己喜欢的风格，本篇以Next主题为例带着大家一起更换主题。 Next主题安装又是一样，推荐大家去官网(http://theme-next.iissnan.com/getting-started.html">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/04/20161204/"/>
+
+
+
+
+
+  <title> Hexo之Next主题及写文章 | wlwlxgg's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">wlwlxgg's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/04/20161204/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="wlwlxgg">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://ohjmj8cyg.bkt.clouddn.com/touxiang_Blog.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="wlwlxgg's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="wlwlxgg's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Hexo之Next主题及写文章
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-04T20:30:58+08:00">
+                2016-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/04/20161204/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/04/20161204/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/04/20161204/" class="leancloud_visitors" data-flag-title="Hexo之Next主题及写文章">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>默认的主题也是很棒的，可是大家都有自己的爱好，就像我就喜欢黑白灰，Hexo官网上有主题项（<a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a>), 很多大牛写出了非常漂亮的主题发布在这里，大家可以去选择自己喜欢的风格，本篇以Next主题为例带着大家一起更换主题。</p>
+<h2 id="Next主题"><a href="#Next主题" class="headerlink" title="Next主题"></a>Next主题</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>又是一样，推荐大家去官网(<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">http://theme-next.iissnan.com/getting-started.html</a>),  又是十分详细的安装步骤，十分简单，并不会有什么错误。我要讲的是hexo的两个配置文件，<font color="#ff000">config.yml</font>，分别位于你设置的站点根目录和themes文件下。</p>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><ul>
+<li><p>站点配置文件<br>在上一篇已经接触到这个文件了，处于根目录下的config.yml文件是我们网站的全局配置文件。  </p>
+  <a id="more"></a>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line"># Hexo Configuration</div><div class="line">## Docs: https://hexo.io/docs/configuration.html</div><div class="line">## Source: https://github.com/hexojs/hexo/</div><div class="line"></div><div class="line"># Site</div><div class="line">title: wlwlxgg&apos;s Blog</div><div class="line">subtitle:</div><div class="line">description:</div><div class="line">author: wlwlxgg</div><div class="line">language: zh-Hans</div><div class="line">timezone:</div><div class="line"></div><div class="line"># URL</div><div class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</div><div class="line">url: http://yoursite.com</div><div class="line">root: /</div><div class="line">permalink: :year/:month/:day/:title/</div><div class="line">permalink_defaults:</div><div class="line"></div><div class="line"># Directory</div><div class="line">source_dir: source</div><div class="line">public_dir: public</div><div class="line">tag_dir: tags</div><div class="line">archive_dir: archives</div><div class="line">category_dir: categories</div><div class="line">code_dir: downloads/code</div><div class="line">i18n_dir: :lang</div><div class="line">skip_render:</div><div class="line"></div><div class="line"># Writing</div><div class="line">new_post_name: :title.md # File name of new posts</div><div class="line">default_layout: post</div><div class="line">titlecase: false # Transform title into titlecase</div><div class="line">external_link: true # Open external links in new tab</div><div class="line">filename_case: 0</div><div class="line">render_drafts: false</div><div class="line">post_asset_folder: false</div><div class="line">relative_link: false</div><div class="line">future: true</div><div class="line">highlight:</div><div class="line">  enable: true</div><div class="line">  line_number: true</div><div class="line">  auto_detect: false</div><div class="line">  tab_replace:</div><div class="line"></div><div class="line"># Category &amp; Tag</div><div class="line">default_category: uncategorized</div><div class="line">category_map:</div><div class="line">tag_map:</div><div class="line"></div><div class="line"># Date / Time format</div><div class="line">## Hexo uses Moment.js to parse and display date</div><div class="line">## You can customize the date format as defined in</div><div class="line">## http://momentjs.com/docs/#/displaying/format/</div><div class="line">date_format: YYYY-MM-DD</div><div class="line">time_format: HH:mm:ss</div><div class="line"></div><div class="line"># Pagination</div><div class="line">## Set per_page to 0 to disable pagination</div><div class="line">per_page: 10</div><div class="line">pagination_dir: page</div><div class="line"></div><div class="line"># Extensions</div><div class="line">## Plugins: https://hexo.io/plugins/</div><div class="line">## Themes: https://hexo.io/themes/</div><div class="line">theme: next</div><div class="line"></div><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: http://github.com/wlwlxgg/wlwlxgg.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+<p>这是我换了主题以后的站点配置文件，大家可以在里面看到，关于站点的所有信息都是在这里配置的，包括站点的名称，目录的全局变量，字体，代码高亮，时间格式，和你的要部署的站点信息等。本文我们要关注的就是<font color="#ff0000">theme:next</font>, 在这里我们就可以更改我们的主题了。</p>
+</li>
+<li><p>主题配置文件<br>在themes文件下，我们可以看到我们刚才安装的next主题和hexo自带的landscape主题，打开next文件夹，我们又看了一个<font color="#ff0000">config.yml</font>文件，打开它，我们将看到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div></pre></td><td class="code"><pre><div class="line"># ---------------------------------------------------------------</div><div class="line"># Site Information Settings</div><div class="line"># ---------------------------------------------------------------</div><div class="line"></div><div class="line"># Put your favicon.ico into `hexo-site/source/` directory.</div><div class="line">favicon: /favicon.ico</div><div class="line"></div><div class="line"># Set default keywords (Use a comma to separate)</div><div class="line">keywords: &quot;Hexo, NexT&quot;</div><div class="line"></div><div class="line"># Set rss to false to disable feed link.</div><div class="line"># Leave rss as empty to use site&apos;s feed link.</div><div class="line"># Set rss to specific value if you have burned your feed already.</div><div class="line">rss:</div><div class="line"></div><div class="line"># Specify the date when the site was setup</div><div class="line">#since: 2015</div><div class="line"></div><div class="line"># Footer `powered-by` and `theme-info` copyright</div><div class="line">copyright: false</div><div class="line"></div><div class="line"># Canonical, set a canonical link tag in your hexo, you could use it for your SEO of blog.</div><div class="line"># See: https://support.google.com/webmasters/answer/139066</div><div class="line"># Tips: Before you open this tag, remeber set up your URL in hexo _config.yml ( ex. url: http://yourdomain.com )</div><div class="line">canonical: true</div><div class="line"></div><div class="line"></div><div class="line"># ---------------------------------------------------------------</div><div class="line"># Menu Settings</div><div class="line"># ---------------------------------------------------------------</div><div class="line"></div><div class="line"># When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -&gt; archives)</div><div class="line">menu:</div><div class="line">  home: /</div><div class="line">  categories: /categories</div><div class="line">  #about: /about</div><div class="line">  archives: /archives</div><div class="line">  #tags: /tags</div><div class="line">  #sitemap: /sitemap.xml</div><div class="line">  #commonweal: /404.html</div><div class="line"></div><div class="line"></div><div class="line"># Enable/Disable menu icons.</div><div class="line"># Icon Mapping:</div><div class="line">#   Map a menu item to a specific FontAwesome icon name.</div><div class="line">#   Key is the name of menu item and value is the name of FontAwsome icon. Key is case-senstive.</div><div class="line">#   When an question mask icon presenting up means that the item has no mapping icon.</div><div class="line">menu_icons:</div><div class="line">  enable: true</div><div class="line">  #KeyMapsToMenuItemKey: NameOfTheIconFromFontAwesome</div><div class="line">  home: home</div><div class="line">  about: user</div><div class="line">  categories: th</div><div class="line">  schedule: calendar</div><div class="line">  tags: tags</div><div class="line">  archives: archive</div><div class="line">  sitemap: sitemap</div><div class="line">  commonweal: heartbeat</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"># ---------------------------------------------------------------</div><div class="line"># Scheme Settings</div><div class="line"># ---------------------------------------------------------------</div><div class="line"></div><div class="line"># Schemes</div><div class="line">scheme: Muse</div><div class="line">#scheme: Mist</div><div class="line">#scheme: Pisces</div><div class="line"></div><div class="line"></div><div class="line"># ---------------------------------------------------------------</div><div class="line"># Font Settings</div><div class="line"># - Find fonts on Google Fonts (https://www.google.com/fonts)</div><div class="line"># - All fonts set here will have the following styles:</div><div class="line">#     light, light italic, normal, normal intalic, bold, bold italic</div><div class="line"># - Be aware that setting too much fonts will cause site running slowly</div><div class="line"># - Introduce in 5.0.1</div><div class="line"># ---------------------------------------------------------------</div><div class="line">font:</div><div class="line">  enable: true</div><div class="line"></div><div class="line">  # Uri of fonts host. E.g. //fonts.googleapis.com (Default)</div><div class="line">  host:</div><div class="line"></div><div class="line">  # Global font settings used on &lt;body&gt; element.</div><div class="line">  global:</div><div class="line">    # external: true will load this font family from host.</div><div class="line">    external: true</div><div class="line">    family: Lato</div><div class="line"></div><div class="line">  # Font settings for Headlines (h1, h2, h3, h4, h5, h6)</div><div class="line">  # Fallback to `global` font settings.</div><div class="line">  headings:</div><div class="line">    external: true</div><div class="line">    family:</div><div class="line"></div><div class="line">  # Font settings for posts</div><div class="line">  # Fallback to `global` font settings.</div><div class="line">  posts:</div><div class="line">    external: true</div><div class="line">    family:</div><div class="line"></div><div class="line">  # Font settings for Logo</div><div class="line">  # Fallback to `global` font settings.</div><div class="line">  # The `size` option use `px` as unit</div><div class="line">  logo:</div><div class="line">    external: true</div><div class="line">    family:</div><div class="line">    size:</div><div class="line"></div><div class="line">  # Font settings for &lt;code&gt; and code blocks.</div><div class="line">  codes:</div><div class="line">    external: true</div><div class="line">    family:</div><div class="line">    size:</div><div class="line"></div><div class="line">...</div></pre></td></tr></table></figure>
+<p>  因为实在太多了，所以我只截取了一小段，大家可以看到，所有站点样式和功能的配置在这里都有，Next主题集成了很多第三方库，具体的使用在官网都有，大家想要什么功能就去官网查看api，然后改成自己喜欢的样式吧。</p>
+</li>
+</ul>
+<h2 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h2><p>相信很多人和我一样，做这样的站点就是为了写博客，记录自己的学习过程，那么具体怎么写文章呢，在哪里写？</p>
+<h3 id="创建markdown文档"><a href="#创建markdown文档" class="headerlink" title="创建markdown文档"></a>创建markdown文档</h3><p>hexo支持markdown格式的文本，这是不是很方便呢，我相信你即使没有用过markdown语法去写文章也一定听说过它吧，方便快捷的命令可以排版出十分好看的界面，所以赶紧去学习markdown吧，看语法一分钟，然后写两篇就得心应手了。  </p>
+<ul>
+<li>你编辑的博客内容都存放在/source/_posts/xxx.md中，你可以用直接将markdown文件拷贝进来，也可以用hexo new xxx命令，这条命令会直接在上述目录中创建markdown文档。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: Hexo之Next主题及写文章</div><div class="line">date: 2016-12-04 20:30:58</div><div class="line">categories: Hexo</div><div class="line">---</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>---</code>之间的内容是hexo发布文章的头文件，可以这么说吧，他提供给站点你想要提供的东西，包括标题、日期、目录、标签等等，所以如果是自己编辑的markdown文件，拷贝进来别忘了加上头文件。<br>    如果你没有用markdown的编辑器，你可以直接用hexo g命令生成静态页面，然后在hexo s本地预览，然后你再编辑文件后，只用刷新本地页面就可以显示你编辑的内容了。</p>
+<h3 id="部署到github-pages"><a href="#部署到github-pages" class="headerlink" title="部署到github pages"></a>部署到github pages</h3><p>当你写完了一篇满意的文章后，用hexo d命令将他部署到github pages上，好了，打开你的站点，你将看到你刚才发布的文章啦。</p>
+<h2 id="添加menu"><a href="#添加menu" class="headerlink" title="添加menu"></a>添加menu</h2><p>next主题为我们提供了home,categories,about,archives,tags,sitemap,commonweal这些菜单，还记得官网的教程吗，#是注释，如果需要放开某个menu秩序要将#删除。我们当然也可以自己去自定义，但这要求一定的前端基础，作为小白的我也是不会的，但这些菜单也满足了我们日常的需求，如果感兴趣可以自行学习。<br>可是我们很容易遇到一些问题，比如我们写了文章添加了目录之后，发现会在生成静态页面的时候发生错误，这是因为我们没有给目录这个站点，这个时候你只需要用<code>hexo new page &quot;categories&quot;</code>命令，这就会在/source/categories目录中生成目录页面index.md打开会有下面的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: categories</div><div class="line">date: 2016-12-01 23:08:47</div><div class="line">type: &quot;categories&quot;</div><div class="line">---</div></pre></td></tr></table></figure></p>
+<p>ok，现在去提交代码，你会发现目录可用啦。</p>
+<h2 id="推荐–七牛云"><a href="#推荐–七牛云" class="headerlink" title="推荐–七牛云"></a>推荐–七牛云</h2><p>在文章中我们不可避免会发很多图片，可是github pages给我们的免费空间只有300M，文字不值空间，可是图片就很夸张了，我们不可能写几十篇博客就没有空间了吧。所以我们可以把图片放到云存储上，然后获得外链，互联网链接做图片地址就好了。很多人都推荐七牛云，于是我也用了它，没发现不好，没有对比就没有伤害，哈哈。所以也推荐给大家。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>打赏么么哒</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://ohjmj8cyg.bkt.clouddn.com/wechat-reward-image.JPG" alt="wlwlxgg WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://ohjmj8cyg.bkt.clouddn.com/alipay-reward-image.JPG" alt="wlwlxgg Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/02/20161202/" rel="next" title="Github pages + Hexo 搭建个人主页">
+                <i class="fa fa-chevron-left"></i> Github pages + Hexo 搭建个人主页
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/12/20161212/" rel="prev" title="自定义Dialog">
+                自定义Dialog <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/04/20161204/"
+           data-title="Hexo之Next主题及写文章" data-url="http://yoursite.com/2016/12/04/20161204/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://ohjmj8cyg.bkt.clouddn.com/touxiang_Blog.jpg"
+               alt="wlwlxgg" />
+          <p class="site-author-name" itemprop="name">wlwlxgg</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wlwlxgg" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Next主题"><span class="nav-number">1.</span> <span class="nav-text">Next主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件"><span class="nav-number">1.2.</span> <span class="nav-text">配置文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写文章"><span class="nav-number">2.</span> <span class="nav-text">写文章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建markdown文档"><span class="nav-number">2.1.</span> <span class="nav-text">创建markdown文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署到github-pages"><span class="nav-number">2.2.</span> <span class="nav-text">部署到github pages</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加menu"><span class="nav-number">3.</span> <span class="nav-text">添加menu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐–七牛云"><span class="nav-number">4.</span> <span class="nav-text">推荐–七牛云</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  &nbsp;&nbsp;By&nbsp;&nbsp;
+  <span class="author" itemprop="copyrightHolder">wlwlxgg</span>
+</div>
+<div class=“beian”>
+  <a href="http://www.miitbeian.gov.cn/" style="text-decoration : none ">冀ICP备17003575号</a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wlwlxgg"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("4bMufsJUTw6WwleuRUSeJLSI-gzGzoHsz", "EqdvaoanzDfmrs0MSdWfY845");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

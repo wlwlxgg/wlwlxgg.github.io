@@ -1,0 +1,803 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="前言APP上线，突然收到个别用户APP启动直接闪退的问题，当时发现这些用户全是Android7.0+的用户，就很奇怪。这是收集到的部分crash日志 12345678910111213141516Caused by: android.view.InflateException: Binary XML file line #14: Binary XML file line #14: Error in">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android7.0+ WebView内核导致APP闪退解决方法">
+<meta property="og:url" content="http://yoursite.com/2017/09/15/20170915/index.html">
+<meta property="og:site_name" content="wlwlxgg&#39;s Blog">
+<meta property="og:description" content="前言APP上线，突然收到个别用户APP启动直接闪退的问题，当时发现这些用户全是Android7.0+的用户，就很奇怪。这是收集到的部分crash日志 12345678910111213141516Caused by: android.view.InflateException: Binary XML file line #14: Binary XML file line #14: Error in">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-15T08:38:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android7.0+ WebView内核导致APP闪退解决方法">
+<meta name="twitter:description" content="前言APP上线，突然收到个别用户APP启动直接闪退的问题，当时发现这些用户全是Android7.0+的用户，就很奇怪。这是收集到的部分crash日志 12345678910111213141516Caused by: android.view.InflateException: Binary XML file line #14: Binary XML file line #14: Error in">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/15/20170915/"/>
+
+
+
+
+
+  <title> Android7.0+ WebView内核导致APP闪退解决方法 | wlwlxgg's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">wlwlxgg's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/15/20170915/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="wlwlxgg">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://ohjmj8cyg.bkt.clouddn.com/touxiang_Blog.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="wlwlxgg's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="wlwlxgg's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android7.0+ WebView内核导致APP闪退解决方法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-15T15:23:10+08:00">
+                2017-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2017/09/15/20170915/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/09/15/20170915/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/09/15/20170915/" class="leancloud_visitors" data-flag-title="Android7.0+ WebView内核导致APP闪退解决方法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>APP上线，突然收到个别用户APP启动直接闪退的问题，当时发现这些用户全是Android7.0+的用户，就很奇怪。这是收集到的部分crash日志</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">Caused by: android.view.InflateException: Binary XML file line #14: Binary XML file line #14: Error inflating class com.ai.kara.jssdk.jsbridge.KaraWebView</div><div class="line">Caused by: android.view.InflateException: Binary XML file line #14: Error inflating class com.ai.kara.jssdk.jsbridge.KaraWebView</div><div class="line">Caused by: java.lang.reflect.InvocationTargetException</div><div class="line">at java.lang.reflect.Constructor.newInstance0(Native Method)</div><div class="line">at java.lang.reflect.Constructor.newInstance(Constructor.java:<span class="number">430</span>)</div><div class="line">at android.view.LayoutInflater.createView(LayoutInflater.java:<span class="number">645</span>)</div><div class="line">at android.view.LayoutInflater.createViewFromTag(LayoutInflater.java:<span class="number">787</span>)</div><div class="line">at android.view.LayoutInflater.createViewFromTag(LayoutInflater.java:<span class="number">727</span>)</div><div class="line">at android.view.LayoutInflater.rInflate(LayoutInflater.java:<span class="number">858</span>)</div><div class="line">at android.view.LayoutInflater.rInflateChildren(LayoutInflater.java:<span class="number">821</span>)</div><div class="line">at android.view.LayoutInflater.rInflate(LayoutInflater.java:<span class="number">861</span>)</div><div class="line">at android.view.LayoutInflater.rInflateChildren(LayoutInflater.java:<span class="number">821</span>)</div><div class="line">at android.view.LayoutInflater.inflate(LayoutInflater.java:<span class="number">518</span>)</div><div class="line">at android.view.LayoutInflater.inflate(LayoutInflater.java:<span class="number">426</span>)</div><div class="line">at android.view.LayoutInflater.inflate(LayoutInflater.java:<span class="number">377</span>)</div><div class="line">at</div></pre></td></tr></table></figure>
+<p>当时大家一起检查代码，因为曾经也遇到过<code>android.view.InflateException: Binary XML file line #14</code>类似的错误，比如在布局中View写成了view等一系列小xml中可能遇到的问题，但当时真的是发现不可能有错。还发现同样的机型同样的系统版本有一个OK，有一个crash，当时就觉得诡异。于是各种翻阅论坛，发现民间大神有很多种解决方案， 因为当时所有的测试机都OK，所以没法测试，只能联系用户帮忙试验。化身客服，最后终于找到美丽的广西小姐姐，友好的帮忙复现，一次次测试，最终在Google Play某应用的评论里找到一个大神详细解释了原因并成功解决了问题。感谢小姐姐。<br><a id="more"></a></p>
+<h3 id="造成的原因"><a href="#造成的原因" class="headerlink" title="造成的原因"></a>造成的原因</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">What&apos;s happening here:</div><div class="line"></div><div class="line">The device has a 64-bit CPU but originally shipped with 32-bit Android 4.4 installed.</div><div class="line">Sometime recently (in the last few months) it got an update to a 64-bit version of Android 5.x. Somehow the 32-bit version of WebView is installed on these devices, either because the user manually installed it when they were still running 4.4 (which doesn&apos;t actually do anything), or because the Play Store picked the wrong version from the store when updating apps after the platform update.</div><div class="line"></div><div class="line">Probably after some more update cycles the Play Store will install the correct 64-bit version and everything will be fine again (not certain about this yet, still testing), but we&apos;re still trying to figure out exactly how this happened and whether it&apos;s actually a Play Store bug or whether this is just an unfortunate combination of circumstances (webview update installed before the OTA that changed the ABI) which doesn&apos;t break other apps, but does break webview because of its special nature as a system library :/</div><div class="line"></div><div class="line">We&apos;re investigating this with the Play Store team, but unfortunately there&apos;s nothing WebView can do to fix this on our end. The Play Store should update to the correct version eventually, and users should be able to resolve it immediately by uninstalling the WebView update (in the apps list in system settings) and then manually updating it again in the Play Store; this seems to cause the correct version to be installed. The same problem appears to have been occurring for Google Play Services on these devices that have been through the 32-&gt;64 bit upgrade path.</div></pre></td></tr></table></figure>
+<p>大概翻译一下吧。精简哈~就是处理器版本是64位的，但安装了32位的浏览器内核，导致WebView在加载so库的时候会抛出异常。<br>经验证，发生此次无法安装应用的机型都是近期更新Android7.0+以上系统的手机，但并不是所有7.0以上的手机都出现了这个问题。造成该问题的原因是用户安装了不兼容x86而只支持arm版本的Android System WebView导致系统webView异常。 由于有用户在使用应用宝等第三方应用商店或部分系统应用商店对部分用户有错误的推送Android System WebView更新，导致这些用户出现系统浏览器闪退，个别应用的闪退，这些问题均在华为开发者联盟，MIUI论坛，一加论坛等有过大量反馈。</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>在应用管理-显示系统进程-android system webview-删除更新（恢复出厂版本）把webview恢复到出厂版本。<br>android system webviw是Chrome的浏览器内核，如果在删除过程中，没有删除更新，只有卸载，那么卸载。卸载后信部落可正常使用，其他曾经闪退的应用也可以正常使用，但由于Chrome组件缺失，可能导致一些潜在的问题，比如使用Chrome浏览器无法播放视频等。如果用户在之后的使用过程中没有问题，那可以不用在意这个问题。如果发生影响其他应用，建议用户去系统的应用商店，再次搜索并下载android system webview，万万不可去应用宝、360手机助手等第三方应用市场下载。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>打赏么么哒</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://ohjmj8cyg.bkt.clouddn.com/wechat-reward-image.JPG" alt="wlwlxgg WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://ohjmj8cyg.bkt.clouddn.com/alipay-reward-image.JPG" alt="wlwlxgg Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/27/20170427/" rel="next" title="记事本">
+                <i class="fa fa-chevron-left"></i> 记事本
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/09/15/20170915/"
+           data-title="Android7.0+ WebView内核导致APP闪退解决方法" data-url="http://yoursite.com/2017/09/15/20170915/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://ohjmj8cyg.bkt.clouddn.com/touxiang_Blog.jpg"
+               alt="wlwlxgg" />
+          <p class="site-author-name" itemprop="name">wlwlxgg</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wlwlxgg" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#造成的原因"><span class="nav-number">2.</span> <span class="nav-text">造成的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法"><span class="nav-number">3.</span> <span class="nav-text">解决方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  &nbsp;&nbsp;By&nbsp;&nbsp;
+  <span class="author" itemprop="copyrightHolder">wlwlxgg</span>
+</div>
+<div class=“beian”>
+  <a href="http://www.miitbeian.gov.cn/" style="text-decoration : none ">冀ICP备17003575号</a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wlwlxgg"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("4bMufsJUTw6WwleuRUSeJLSI-gzGzoHsz", "EqdvaoanzDfmrs0MSdWfY845");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
