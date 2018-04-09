@@ -84,20 +84,26 @@
 
 
 
-<meta name="description" content="尽量写一篇简洁的教程，照顾到很多想要有自己博客的同学。无论你从事什么专业，无论什么年龄，只要你想有一个属于自己的博客，都可以来看，会写的很详细，因为我和你一样，也是小白。　　其实现在每个软件的官网都把安装步骤写的很详细了，只是即使这样，我们在安装的时候也会出现各种奇奇怪怪的错误，有时候Google也找不到和我们一样错误的人，你会不会觉得天啊，为什么只有我。所以我还是要写一下我安装的步骤，因为在">
+<meta name="description" content="前言Android的打包发布比较麻烦，涉及到分发到20+的应用商店，如果这部分工作都是开发人员手动完成的，那么其实效率会很低，利用Jenkins我们可以很好的解决这个问题，并且可以把发包这件事情交给产品或者运营人员去做，避免了很多不必要的麻烦。 这一篇先简单讲讲Jenkins的配置，安装，以及Android工程需要的环境配置。最后简单的生成一个apk包。下一篇我们会讲参数化构建，来实现不同环境的发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Github pages + Hexo 搭建个人主页">
-<meta property="og:url" content="http://yoursite.com/2016/12/02/20161202/index.html">
+<meta property="og:title" content="Android基于Jenkins自动化构建（一）">
+<meta property="og:url" content="http://yoursite.com/2018/04/09/20180409/index.html">
 <meta property="og:site_name" content="wlwlxgg&#39;s Blog">
-<meta property="og:description" content="尽量写一篇简洁的教程，照顾到很多想要有自己博客的同学。无论你从事什么专业，无论什么年龄，只要你想有一个属于自己的博客，都可以来看，会写的很详细，因为我和你一样，也是小白。　　其实现在每个软件的官网都把安装步骤写的很详细了，只是即使这样，我们在安装的时候也会出现各种奇奇怪怪的错误，有时候Google也找不到和我们一样错误的人，你会不会觉得天啊，为什么只有我。所以我还是要写一下我安装的步骤，因为在">
+<meta property="og:description" content="前言Android的打包发布比较麻烦，涉及到分发到20+的应用商店，如果这部分工作都是开发人员手动完成的，那么其实效率会很低，利用Jenkins我们可以很好的解决这个问题，并且可以把发包这件事情交给产品或者运营人员去做，避免了很多不必要的麻烦。 这一篇先简单讲讲Jenkins的配置，安装，以及Android工程需要的环境配置。最后简单的生成一个apk包。下一篇我们会讲参数化构建，来实现不同环境的发">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ohjmj8cyg.bkt.clouddn.com/2016120201.png">
-<meta property="og:image" content="http://ohjmj8cyg.bkt.clouddn.com/2016120202.png">
-<meta property="og:updated_time" content="2016-12-28T04:00:10.000Z">
+<meta property="og:image" content="http://ohjmj8cyg.bkt.clouddn.com/2018040901.jpg">
+<meta property="og:image" content="http://ohjmj8cyg.bkt.clouddn.com/2018040902.jpg">
+<meta property="og:image" content="http://ohjmj8cyg.bkt.clouddn.com/2018040903.jpg">
+<meta property="og:image" content="http://ohjmj8cyg.bkt.clouddn.com/2018040904.jpg">
+<meta property="og:image" content="http://ohjmj8cyg.bkt.clouddn.com/2018040905.jpg">
+<meta property="og:image" content="http://ohjmj8cyg.bkt.clouddn.com/2018040906.jpg">
+<meta property="og:image" content="http://ohjmj8cyg.bkt.clouddn.com/2018040907.jpg">
+<meta property="og:image" content="http://ohjmj8cyg.bkt.clouddn.com/2018040908.jpg">
+<meta property="og:updated_time" content="2018-04-09T08:06:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Github pages + Hexo 搭建个人主页">
-<meta name="twitter:description" content="尽量写一篇简洁的教程，照顾到很多想要有自己博客的同学。无论你从事什么专业，无论什么年龄，只要你想有一个属于自己的博客，都可以来看，会写的很详细，因为我和你一样，也是小白。　　其实现在每个软件的官网都把安装步骤写的很详细了，只是即使这样，我们在安装的时候也会出现各种奇奇怪怪的错误，有时候Google也找不到和我们一样错误的人，你会不会觉得天啊，为什么只有我。所以我还是要写一下我安装的步骤，因为在">
-<meta name="twitter:image" content="http://ohjmj8cyg.bkt.clouddn.com/2016120201.png">
+<meta name="twitter:title" content="Android基于Jenkins自动化构建（一）">
+<meta name="twitter:description" content="前言Android的打包发布比较麻烦，涉及到分发到20+的应用商店，如果这部分工作都是开发人员手动完成的，那么其实效率会很低，利用Jenkins我们可以很好的解决这个问题，并且可以把发包这件事情交给产品或者运营人员去做，避免了很多不必要的麻烦。 这一篇先简单讲讲Jenkins的配置，安装，以及Android工程需要的环境配置。最后简单的生成一个apk包。下一篇我们会讲参数化构建，来实现不同环境的发">
+<meta name="twitter:image" content="http://ohjmj8cyg.bkt.clouddn.com/2018040901.jpg">
 
 
 
@@ -125,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/12/02/20161202/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/09/20180409/"/>
 
 
 
 
 
-  <title> Github pages + Hexo 搭建个人主页 | wlwlxgg's Blog </title>
+  <title> Android基于Jenkins自动化构建（一） | wlwlxgg's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -242,7 +248,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/02/20161202/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/09/20180409/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="wlwlxgg">
@@ -266,7 +272,7 @@
             
             
               
-                Github pages + Hexo 搭建个人主页
+                Android基于Jenkins自动化构建（一）
               
             
           </h1>
@@ -279,8 +285,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-02T09:53:41+08:00">
-                2016-12-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-09T13:00:00+08:00">
+                2018-04-09
               </time>
             
 
@@ -298,8 +304,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
                   </a>
                 </span>
 
@@ -317,7 +323,7 @@
 
           
           
-             <span id="/2016/12/02/20161202/" class="leancloud_visitors" data-flag-title="Github pages + Hexo 搭建个人主页">
+             <span id="/2018/04/09/20180409/" class="leancloud_visitors" data-flag-title="Android基于Jenkins自动化构建（一）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -342,62 +348,27 @@
       
 
       
-        <p>　　尽量写一篇简洁的教程，照顾到很多想要有自己博客的同学。无论你从事什么专业，无论什么年龄，只要你想有一个属于自己的博客，都可以来看，会写的很详细，因为我和你一样，也是小白。<br>　　其实现在每个软件的官网都把安装步骤写的很详细了，只是即使这样，我们在安装的时候也会出现各种奇奇怪怪的错误，有时候Google也找不到和我们一样错误的人，你会不会觉得天啊，为什么只有我。所以我还是要写一下我安装的步骤，因为在这个过程中，我也遇到无数这样的坑，希望你们不要有坑，但如果有 ，我能帮到你们。<br>　　先解释一下这几个名词吧，解释的不好勿喷。</p>
-<h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><h3 id="Github-pages"><a href="#Github-pages" class="headerlink" title="Github pages"></a><a href="https://pages.github.com" target="_blank" rel="external">Github pages</a></h3><p>Github Pages 是依托 Github 本身的技术服务经验开发出来的一款产品，解决的是分布式的内容版本管理问题。架设博客是其功能的一部分，正如官网写的Websites for you and your projects.你可以在这里展示你的代码，也可做你想做的事情。</p>
-<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a><a href="https://hexo.io" target="_blank" rel="external">Hexo</a></h3><p>Hexo是一个开源的静态博客生成器，用node.js开发，作者是台湾大学生tommy351。官网也有这样一句介绍：A fast, simple &amp; powerful blog framework，因为我也是个小白，也不能说出hexo具体哪里好，但是简单方便是一定的，不然小白我也不能这么快就写个教程出来啊。</p>
-<h3 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a><a href="https://nodejs.org" target="_blank" rel="external">node.js</a></h3><p>Hexo基于node.js，所以这是安装hexo不可少的环境。<br>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。这是官网的介绍，我觉得我不能更详细了，因为我对前端框架也不熟，在慢慢学习。<br><a id="more"></a></p>
-<h2 id="申请Github账号"><a href="#申请Github账号" class="headerlink" title="申请Github账号"></a>申请Github账号</h2><ul>
-<li>进入<a href="https://github.com" target="_blank" rel="external">Github</a>主页，去申请账号吧，现在github可能被墙，具体代理什么的，看自己爱好吧。    </li>
-</ul>
-<h2 id="新建仓库"><a href="#新建仓库" class="headerlink" title="新建仓库"></a>新建仓库</h2><ul>
-<li><p>点击右下角的<font color="#228B22">New resposity</font>    </p>
-<p><img src="http://ohjmj8cyg.bkt.clouddn.com/2016120201.png" alt="img"></p>
-</li>
-<li><p>在Respository name输入username.github.io.git<br>这个地址是固定的，就是你的用户名加上github.io.git这样可以保证每个github账户就只有一个pages地址。不然别人起了这个名字你岂不是用不了。笔者因为已经创建过了，所以塔提示我已经存在了，之后点<font color="#228B22">Create respository</font>就可以了。<br><img src="http://ohjmj8cyg.bkt.clouddn.com/2016120202.png" alt="img"></p>
-</li>
-<li><p>仓库建好了，接下来要做的就是本地配置了。</p>
-</li>
-</ul>
-<h2 id="git安装"><a href="#git安装" class="headerlink" title="git安装"></a>git安装</h2><p>关于git的安装教程网上太多了，我这里不太想再去重复了，推荐几个链接。  </p>
-<ul>
-<li>Mac版：<a href="http://blog.csdn.net/xiaohanluo/article/details/53214933" target="_blank" rel="external">http://blog.csdn.net/xiaohanluo/article/details/53214933</a></li>
-<li>Windows版：<a href="http://www.cnblogs.com/zhcncn/p/3787849.html" target="_blank" rel="external">http://www.cnblogs.com/zhcncn/p/3787849.html</a></li>
-</ul>
-<h2 id="Node-js安装"><a href="#Node-js安装" class="headerlink" title="Node.js安装"></a>Node.js安装</h2><ul>
-<li><a href="https://nodejs.org去官网装吧，很简单，官网说明很多。" target="_blank" rel="external">https://nodejs.org去官网装吧，很简单，官网说明很多。</a></li>
-</ul>
-<h2 id="hexo安装"><a href="#hexo安装" class="headerlink" title="hexo安装"></a>hexo安装</h2><p>很郁闷，我本来想写的很详细，不知道为啥都推荐你们去官网了，因为官网真的好啊。</p>
-<ul>
-<li><p>npm包改为淘宝镜像<br>这里需要说明一下，因为国内的网络环境，四面围墙，有时候用npm包会出现慢到卡死的情况，我就出现了这个问题，于是推荐大家改为淘宝镜像。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm config set registry https://registry.npm.taobao.org</div><div class="line"></div><div class="line">npm info underscore</div></pre></td></tr></table></figure>
-<p>  这两条命令可以修改为国内镜像，速度快多了。</p>
-</li>
-<li><p>安装hexo<br>直接输入命令</p>
-<pre><code>npm install hexo-cli -g 
-</code></pre></li>
-</ul>
-<p>进行hexo的全局安装</p>
-<h2 id="hexo初始设置"><a href="#hexo初始设置" class="headerlink" title="hexo初始设置"></a>hexo初始设置</h2><ul>
-<li><p>建立你在本地的目录</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo init &lt;folder&gt;  #执行init命令初始化hexo到你指定的目录     </div><div class="line">hexo generate       #自动根据当前目录下文件,生成静态网页   </div><div class="line">hexo server         #运行本地服务</div></pre></td></tr></table></figure>
-<p>  解释一下这几个命令。</p>
-<ul>
-<li>init是初始化你的hexo目录。之后你所有的静态页面都是在这个目录下，包括你发的博客和所有资源。</li>
-<li>generate会生成你的静态页面，包括 你写的md文档。</li>
-<li>server命令很棒，这个据说也是hexo很受欢迎的一个原因。这个命令可以让你在本地预览hexo生成的网页。在这个命令执行期间，进入 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 就可以看到你的网页了，这个预览功能很不错，如果你在此时修改了md文件，不需要再次generate，刷新一下网页就立即更改了。退出就和其他指令一样control+c。</li>
-</ul>
-</li>
-<li><p>修改配置文件，关联到github<br>在你的hexo目录下，有一个config.yml文件，打开它，在最后又deploy标签，修改其type为git,respository为你的github仓库地址，博主的配置如下</p>
-<pre><code>deploy:
-type: git
-repository: http://github.com/wlwlxgg/wlwlxgg.github.io.git
-branch: master
-</code></pre><p>千万要记得，冒号后面有一个空格，博主在配置的时候被这个坑了一天。</p>
-</li>
-<li><p>hexo d —— 将网页发布到Github pages<br>终于来了，有人看到现在也不能理解为什么要和github有关系，很多人只以为hexo是重点，我想说一下，hexo只是一个页面生成工具，我们需要服务器把我们的代码发布到互联网上，github pages就是提供给我们的这样一个免费空间，我们通过他把我们的代码展现给互联网。所以当我们在本地用hexo生成了静态页面后，需要把文件发布到我们之前建立的代码仓库，因为这个仓库我们是按照github pages建库的标准建立的，即username.github.io.git，所以当你用hexo把文件同步到仓库后，github会把生成的页面发布到github pages上去，这个时候我们就可以登录 username.github.io 进入到我们的页面了。</p>
-</li>
-</ul>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>终于知道好小说为啥总是烂尾了，还记得我们这个年代的人看的诛仙吗。我错了，本来以为自己能写的很详细，现在才发现果然自己离大牛的距离不是一点两点。不过今天上班也很忙，忙里偷闲才挤出了这样一篇教程，和我想要告诉你们的实在太远了。下一篇会介绍一下hexo的主题更换，和发文章的相关小白文章。现在用的Next主题，我喜欢这种简洁的风格，也会慢慢学习hexo框架，为自己写出属于自己的博客框架做准备。希望有这么一天，你看我的主页不只有日记和Android，还有我为小白们打造的简单的框架。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Android的打包发布比较麻烦，涉及到分发到20+的应用商店，如果这部分工作都是开发人员手动完成的，那么其实效率会很低，利用Jenkins我们可以很好的解决这个问题，并且可以把发包这件事情交给产品或者运营人员去做，避免了很多不必要的麻烦。</p>
+<p>这一篇先简单讲讲Jenkins的配置，安装，以及Android工程需要的环境配置。最后简单的生成一个apk包。下一篇我们会讲参数化构建，来实现不同环境的发包。</p>
+<p>PS:笔者用的是OSX，所以本文是基于OSX的安装教程，Windows差不多，无非就是安装嘛。<br><a id="more"></a></p>
+<h3 id="一、安装Homebrew-40-MAC下载神器-41"><a href="#一、安装Homebrew-40-MAC下载神器-41" class="headerlink" title="一、安装Homebrew&#40;MAC下载神器&#41;"></a>一、安装Homebrew&#40;MAC下载神器&#41;</h3><p>只要在终端里输入这个就可以安装了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div></pre></td></tr></table></figure>
+<p>brew的资源有时候因为墙的问题会很慢，所以我们最好还是替换掉homebrew的默认源。附上镜像地址，国内好用的镜像就是中科大和清华镜像&#40;我用的中科大镜像，在中科大镜像不可用时我们可以使用清华镜像&#41;</p>
+<h4 id="1、中科大镜像"><a href="#1、中科大镜像" class="headerlink" title="1、中科大镜像"></a>1、中科大镜像</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">替换brew.git:</div><div class="line">cd &quot;$(brew --repo)&quot;</div><div class="line">git remote set-url origin https://mirrors.ustc.edu.cn/brew.git</div><div class="line"></div><div class="line">替换homebrew-core.git:</div><div class="line">cd &quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&quot;</div><div class="line">git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git</div></pre></td></tr></table></figure>
+<h4 id="2、清华镜像"><a href="#2、清华镜像" class="headerlink" title="2、清华镜像"></a>2、清华镜像</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd &quot;$(brew --repo)&quot;</div><div class="line">git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git</div><div class="line"></div><div class="line">cd &quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&quot;</div><div class="line">git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git</div></pre></td></tr></table></figure>
+<h3 id="二、安装adb-40-Android-debug-bridge-41"><a href="#二、安装adb-40-Android-debug-bridge-41" class="headerlink" title="二、安装adb&#40;Android debug bridge&#41;"></a>二、安装adb&#40;Android debug bridge&#41;</h3><p>之前安装homebrew就是为了方便安装这些工具，类似于yum<br>在终端输入</p>
+<pre><code>brew install android-platform-tools
+</code></pre><p>安装结束以后，输入<code>adb device</code>测试是否安装成功</p>
+<h3 id="三、安装gradle"><a href="#三、安装gradle" class="headerlink" title="三、安装gradle"></a>三、安装gradle</h3><pre><code>brew install gradle
+</code></pre><p>安装结束以后，输入gradle -v测试是否安装成功</p>
+<h3 id="四、安装Jenkins"><a href="#四、安装Jenkins" class="headerlink" title="四、安装Jenkins"></a>四、安装Jenkins</h3><pre><code>brew install jenkins
+</code></pre><p>安装结束之后，用Jenkins命令就可以开启Jenkins了。<br>然后进去localhost:8080就能看到Jenkins页面。<br>首次登陆用户名为admin，密码是安装过程中，终端会提示的一长串十六进制密码，登陆成功后去用户设置里修改成自己的密码。</p>
+<h3 id="五、Jenkins插件安装"><a href="#五、Jenkins插件安装" class="headerlink" title="五、Jenkins插件安装"></a>五、Jenkins插件安装</h3><p>构建Android工程，需要用到的插件有gradle plugin、Git plugin以及Android Lint Plugin。<br>我们去系统配置-插件管理-可选插件中搜索这三个插件安装。<br><img src="http://ohjmj8cyg.bkt.clouddn.com/2018040901.jpg" alt="img"><br>安装成功后如上图。Git插件貌似是默认安装的。</p>
+<h3 id="六、配置Android环境变量"><a href="#六、配置Android环境变量" class="headerlink" title="六、配置Android环境变量"></a>六、配置Android环境变量</h3><p>在系统管理-系统设置中，找到全局属性，新增键值</p>
+<pre><code>key:ANDROID_HOME  value:/Users/xxx/Library/Android/sdk
+</code></pre><p>这里的value是你本地SDK所在的目录，如果你不知道sdk在哪里，有个很聪明的笨办法，你可以去看看你项目的Moudle Settting，它会告诉你。<br><img src="http://ohjmj8cyg.bkt.clouddn.com/2018040902.jpg" alt="img"><br>看到了吗？SDK Location，OK，就是这样。</p>
+<h3 id="七、配置Global-Tool-Configuration"><a href="#七、配置Global-Tool-Configuration" class="headerlink" title="七、配置Global Tool Configuration"></a>七、配置Global Tool Configuration</h3><p>直接上截图吧<br><img src="http://ohjmj8cyg.bkt.clouddn.com/2018040903.jpg" alt="img"><br>其中JDK的地址我也是偷懒在项目的Moudle Setting里直接复制的，看到了吗，上面那个SDK Location的图里，有。<br>Git的地址是Mac默认安装的地址，你可以copy过去，如果你自己安装了，那么拷贝你的路径就可以。<br>gradle的路径也是，自己找吧骚年。</p>
+<h3 id="八、新建项目"><a href="#八、新建项目" class="headerlink" title="八、新建项目"></a>八、新建项目</h3><p><img src="http://ohjmj8cyg.bkt.clouddn.com/2018040904.jpg" alt="img"><br><img src="http://ohjmj8cyg.bkt.clouddn.com/2018040905.jpg" alt="img"><br><img src="http://ohjmj8cyg.bkt.clouddn.com/2018040906.jpg" alt="img"><br>配置之后去项目里点击立即构建，试试你成功没有<br><img src="http://ohjmj8cyg.bkt.clouddn.com/2018040907.jpg" alt="img"><br>笔者是成功了<br><img src="http://ohjmj8cyg.bkt.clouddn.com/2018040908.jpg" alt="img"><br>在工作区可以看到我们生成的apk</p>
 
       
     </div>
@@ -445,8 +416,8 @@ branch: master
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/01/20161201/" rel="next" title="开篇">
-                <i class="fa fa-chevron-left"></i> 开篇
+              <a href="/2017/09/15/20170915/" rel="next" title="Android7.0+ WebView内核导致APP闪退解决方法">
+                <i class="fa fa-chevron-left"></i> Android7.0+ WebView内核导致APP闪退解决方法
               </a>
             
           </div>
@@ -454,10 +425,6 @@ branch: master
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/04/20161204/" rel="prev" title="Hexo之Next主题及写文章">
-                Hexo之Next主题及写文章 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -581,7 +548,7 @@ branch: master
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#名词解释"><span class="nav-number">1.</span> <span class="nav-text">名词解释</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Github-pages"><span class="nav-number">1.1.</span> <span class="nav-text">Github pages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo"><span class="nav-number">1.2.</span> <span class="nav-text">Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node-js"><span class="nav-number">1.3.</span> <span class="nav-text">node.js</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#申请Github账号"><span class="nav-number">2.</span> <span class="nav-text">申请Github账号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建仓库"><span class="nav-number">3.</span> <span class="nav-text">新建仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git安装"><span class="nav-number">4.</span> <span class="nav-text">git安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js安装"><span class="nav-number">5.</span> <span class="nav-text">Node.js安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo安装"><span class="nav-number">6.</span> <span class="nav-text">hexo安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo初始设置"><span class="nav-number">7.</span> <span class="nav-text">hexo初始设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">8.</span> <span class="nav-text">结语</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、安装Homebrew-40-MAC下载神器-41"><span class="nav-number">2.</span> <span class="nav-text">一、安装Homebrew(MAC下载神器)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、中科大镜像"><span class="nav-number">2.1.</span> <span class="nav-text">1、中科大镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、清华镜像"><span class="nav-number">2.2.</span> <span class="nav-text">2、清华镜像</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、安装adb-40-Android-debug-bridge-41"><span class="nav-number">3.</span> <span class="nav-text">二、安装adb(Android debug bridge)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、安装gradle"><span class="nav-number">4.</span> <span class="nav-text">三、安装gradle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、安装Jenkins"><span class="nav-number">5.</span> <span class="nav-text">四、安装Jenkins</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、Jenkins插件安装"><span class="nav-number">6.</span> <span class="nav-text">五、Jenkins插件安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、配置Android环境变量"><span class="nav-number">7.</span> <span class="nav-text">六、配置Android环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、配置Global-Tool-Configuration"><span class="nav-number">8.</span> <span class="nav-text">七、配置Global Tool Configuration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八、新建项目"><span class="nav-number">9.</span> <span class="nav-text">八、新建项目</span></a></li></ol></div>
             
 
           </div>
