@@ -96,7 +96,7 @@
 <meta property="og:image" content="http://ohjmj8cyg.bkt.clouddn.com/2018041103.jpg">
 <meta property="og:image" content="http://ohjmj8cyg.bkt.clouddn.com/2018041104.jpg">
 <meta property="og:image" content="http://ohjmj8cyg.bkt.clouddn.com/2018041105.jpg">
-<meta property="og:updated_time" content="2018-04-11T07:24:35.000Z">
+<meta property="og:updated_time" content="2018-04-11T07:25:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android基于Jenkins自动化构建（二）">
 <meta name="twitter:description" content="前言上一篇介绍了Jenkins的安装和Android打包需要的插件，这一篇讲参数化构建。所谓参数化构建，实际就是通过Jenkins注入参数到build.gradle中，实现我们的动态打包。 配置参数上一篇我们有配置好能够生成apk的项目，现在，我们要修改一下它的配置。选中项目，点击配置，如下图。  Choice Parameter   顾名思义，这个参数是可供选择的参数，我们在这里定义了参数名为A">
@@ -352,7 +352,8 @@
 <p>  顾名思义，这个参数是可供选择的参数，我们在这里定义了参数名为API_ENVIRONMENT(注意，参数名不可以是中文，不可以用符号打头),选择的内容有pro和dev，描述随便写。</p>
 </li>
 <li><p>String Parameter</p>
-<p>  这个参数是可以填入的，我们在这里将应用版本号作为参数传入。<br>&lt;!—-more&gt;    </p>
+<p>  这个参数是可以填入的，我们在这里将应用版本号作为参数传入。</p>
+<a id="more"></a> 
 <h3 id="修改Task"><a href="#修改Task" class="headerlink" title="修改Task"></a>修改Task</h3><p>直接上图<br><img src="http://ohjmj8cyg.bkt.clouddn.com/2018041102.jpg" alt="img"></p>
 </li>
 </ul>
